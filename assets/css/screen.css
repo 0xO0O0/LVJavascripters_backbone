@@ -1,0 +1,13 @@
+/* Screen CSS */
+
+html {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+#application-wrapper {
+  position: relative;
+}
