@@ -1,0 +1,15 @@
+<div id="twitter-timeline">
+  <ul>
+    {{#results}}
+    <li>
+      <div class='tweetbar'></div>
+      <div class="tweet">
+        <img class="pic" src={{profile_image_url}} />
+        <h1>{{from_user}}</h1><br>
+        <p>{{text}}</p> 
+      </div>
+    </li>
+    {{/results}}
+  </ul>
+  
+</div>
