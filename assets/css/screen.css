@@ -6,21 +6,63 @@ html {
 
 body {
   margin: 0;
+  background-color: #303032;
 }
 
 #application-wrapper {
   position: relative;
 }
 
-#twitter-timeline {
+#view-pane {
+  position: relative;
+}
 
+#title {
   position: relative;
   margin: 10px;
+  color: #efeefb;
+  font-size: 24px;
+  font-family: Georgia;
+}
+
+#title h1 {
+  width: 450px;
+  margin: 0 auto;
+}
+
+#title h1 input {
+  width: 260px;
+}
+
+#twitter-timeline {
+  position: relative;
+  margin: 10px;
+  padding: 10px;
   background-color: #f2f2f2; 
 }
 
 .tweet {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  border: 2px solid #f4cb49;
+  background-color: #fff;
+  display: block;
+  padding: 5px;
+
+
+}
+
+.tweetbar {
+  position: relative;
+  height: 12px;
+  background-color: #4c515b;
+}
+
+.tweetbar:nth-child(1) {
+  bottom: -1px;
+}
+
+li:nth-child(even) {
+ background-color: #fff
 }
 
 .tweet img {
@@ -29,5 +71,20 @@ body {
 }
 
 .tweet h1 {
+  font-family: Verdana;
+  font-size: 18px;
   margin-right: 4px;
+}
+
+.tweet p {
+  font-family: Helvetica, Georgia;
+  font-size: 14px;
+  width: 420px;
+  margin-bottom: 10px;
+}
+
+.pic { 
+  border:1px solid #eaeaea; 
+  background-color: #fff; 
+  padding: 2px; 
 }
