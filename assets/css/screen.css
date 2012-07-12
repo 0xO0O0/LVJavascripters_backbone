@@ -26,12 +26,23 @@ body {
 }
 
 #title h1 {
-  width: 450px;
+  width: 480px;
   margin: 0 auto;
 }
 
 #title h1 input {
   width: 260px;
+}
+
+input#submit-search {
+  position: relative;
+  float: right;
+  top: -20px;
+  right: 153px;
+  width: 60px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
 #twitter-timeline {

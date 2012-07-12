@@ -20,69 +20,6 @@
 
   <script src="js/libs/jquery/jquery-min.js" type="text/javascript" charset="utf-8"></script>
   <!-- Scripts -->
-  <script type="text/javascript">
-
-    $(document).ready(function() {
-      setTimeout(function() {
-        // this will preventDefault for all links in the application
-        // opted to not use jQuery as that was not really working all
-        // the time, for example the iPad, which this app is targeted
-        var anchors = $('html').find('a');
-        console.log(anchors);
-
-        for(var i=0; i < anchors.length; i++) {
-            addEvent(anchors[i], 'click', preventDefault);
-            addEvent(anchors[i], 'touchstart', preventDefault);
-            
-        }
-
-        function preventDefault(e) {
-            e = e || window.event;
-           (e.preventDefault)? 
-               e.preventDefault() : e.returnValue = false;
-        }
-
-        function addEvent(obj, evType, fn){ 
-           if (obj.addEventListener){ 
-               obj.addEventListener(evType, fn, false); 
-               return true; 
-           } 
-           else if (obj.attachEvent){ 
-               var r = obj.attachEvent("on"+evType, fn); 
-               return r; 
-         } else { 
-               return false; 
-         } 
-        }
-        // end script //////////////////////////////////////////////////////////////
-
-   
-      }, 2000);
-              
-    });
-    (function(document,navigator,standalone) {
-      // prevents links from apps from oppening in mobile safari
-      // this javascript must be the first script in your <head>
-      if ((standalone in navigator) && navigator[standalone]) {
-        var curnode, location=document.location, stop=/^(a|html)$/i;
-        document.addEventListener('click', function(e) {
-          curnode=e.target;
-          while (!(stop).test(curnode.nodeName)) {
-            curnode=curnode.parentNode;
-          }
-          // Condidions to do this only on links to your own app
-          // if you want all links, use if('href' in curnode) instead.
-          if('href' in curnode && 
-            ( curnode.href.indexOf('http') || 
-              ~curnode.href.indexOf(location.host) ) ) 
-          {
-            e.preventDefault();
-            location.href = curnode.href;
-          }
-        },false);
-      }
-    })(document,window.navigator,'standalone');
-  </script>
     
 	<script data-main="js/main" src="js/libs/require/require.js"></script>
   
