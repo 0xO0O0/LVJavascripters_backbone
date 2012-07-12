@@ -15,10 +15,10 @@ function($, _, Backbone, Vm, Events, layoutTemplate){
     // Properties =======================================================
     el: '.application-wrapper',
 
-    sidebar:      null,
+    twitterView: null,
     
     baseURL: function(path) {
-      return 'http://localhost:3333/api/' + path;
+      return 'http://www.twitter.com/' + path;
     },
     
     // Render View ======================================================

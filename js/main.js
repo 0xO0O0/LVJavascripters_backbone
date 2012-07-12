@@ -49,7 +49,7 @@ require(
 
   [
   // Dependencies
-  'views/app',
+  'app',
   'router',
   'vm',
 

@@ -11,3 +11,23 @@ body {
 #application-wrapper {
   position: relative;
 }
+
+#twitter-timeline {
+
+  position: relative;
+  margin: 10px;
+  background-color: #f2f2f2; 
+}
+
+.tweet {
+  margin-bottom: 20px;
+}
+
+.tweet img {
+  float: left;
+  margin: 5px;
+}
+
+.tweet h1 {
+  margin-right: 4px;
+}
