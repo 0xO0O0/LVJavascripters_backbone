@@ -9,37 +9,39 @@ define(
 
 function($, _, Backbone, Events){
 
-	var views = {};
+  var views = {};
 
-	var create = function (context, name, View, options) {
+  var create = function (context, name, View, options) {
 
-		// View clean up isn't actually implemented yet 
+    // View clean up isn't actually implemented yet 
     // but will simply call .clean, .remove and .unbind
+
+    if(typeof views[name] !== 'undefined') 
+    {
+      views[name].undelegateEvents();
     
-		if(typeof views[name] !== 'undefined') {
-			views[name].undelegateEvents();
-			if(typeof views[name].clean === 'function') {
-				views[name].clean();
-			}
-		}
+      if(typeof views[name].clean === 'function') {
+        views[name].clean();
+      }
+    }
 
-		var view = new View(options);
+    var view = new View(options);
 
-		views[name] = view;
+    views[name] = view;
 
-		if(typeof context.children === 'undefined'){
-		  context.children = {};
-		  context.children[name] = view;
-		} else {
-		  context.children[name] = view;
-		}
+    if(typeof context.children === 'undefined'){
+      context.children = {};
+      context.children[name] = view;
+    } else {
+      context.children[name] = view;
+    }
 
-		Events.trigger('viewCreated');
+    Events.trigger('viewCreated');
 
-		return view;
-	};
-	
-	
+    return view;
+  };
+
+
   return {
     create: create
   };

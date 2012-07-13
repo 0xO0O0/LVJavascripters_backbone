@@ -14,6 +14,8 @@ function($, _, Backbone, Vm, twitterTemplate){
     el: '#view-pane',
 
     searchEL: "#search-input",
+    
+    searchTerm: null,
 
     twitterData: {
       tweets: null
@@ -23,22 +25,29 @@ function($, _, Backbone, Vm, twitterTemplate){
     
     initialize: function() {
       debug.log("Initialize Twitter Search View");
-      // this.fetchActivityData();
-
-      // var _this = this;
-      // $(this.searchEL).on('keydown', function(e) {
-      //   console.log(e.value);
-      //   _this.keydownTest(e, $(_this.searchEL).val());
-      // });
+      this.fetchActivityData();
+      
     },
     // ========================================================================
 
 
     events: {
-      "click #submit-search" : "submitSearch"
+      "click #submit-search" : "submitSearch",
+      "keydown #search-input" : "keydown"
     },
-    
-    fetchActivityData: function() {
+
+    keydown: function(e) {
+      console.log(this);
+      
+
+      if (e.keyCode === 13) {
+        console.log("ENTER");
+        this.fetchActivityData($(this.searchEL).val());
+      };
+    },
+
+    fetchActivityData: function(searchTerm) {
+      searchTerm = searchTerm || 'lvtech';
       console.log("hello from here");
       var _this = this;
 
@@ -49,7 +58,7 @@ function($, _, Backbone, Vm, twitterTemplate){
         // Sending authcredentials to server for mapkey
         // if we get the mapkey then the user is authed
         $.ajax({
-          url: _app.baseURL('search.json?q=%40lvtech'),
+          url: _app.baseURL('search.json?q=%40'+searchTerm+''),
           dataType: 'jsonp',
           jsonpCallback: 'callback',
           crossDomain: true,
@@ -94,7 +103,7 @@ function($, _, Backbone, Vm, twitterTemplate){
       this.$el.html(temp);
 
       window.App.twitterView = this;
-
+      console.log(this);
     }
     // ==========================================================================
     // ==========================================================================
